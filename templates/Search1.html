@@ -1,0 +1,154 @@
+{% load static %}
+<html>
+<head>
+    <title>Rmd Blood Group</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static "css/Home.css" %}">
+       <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+       <link rel="stylesheet" type="text/js" href="{% static "js/Home.js" %}">
+       <script src="{% static "js/Home.js" %}"></script><link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script data-ad-client="ca-pub-9056165283422658" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <style>
+body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid grey;
+  float: left;
+  width: 30%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+img {
+  border-radius: 50%;
+}
+
+</style>
+</head>
+<body background="{% static "images/Background1.jpg" %}">
+<br>
+<br>
+<br>
+
+<img src="{% static "images/download (4).jpg" %}" style="float: left;width: 90px;background-color: black;">
+<img src="{% static "images/Untitled.jpg" %}" style="float: right;width: 90px;">
+
+<form class="example" action="/search2/">
+    {% csrf_token %}
+    <table align="center">
+        <tr><td>
+        <input type="text" placeholder="Search.." name="blood" required style="width: 300px; "  >
+        <button type="submit" style="width: 50px;height: 40px;"><i class="fa fa-search"></i></button>
+    </td></tr></table>
+
+
+</form>
+<br>
+
+   <button onclick="myFunction()" style="float: right">Print this page</button>
+<button type="submit" onclick="history.back()">Go Back</button>
+
+<script>
+function myFunction() {
+  window.print();
+}
+</script>
+</td>
+        </tr>
+
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    </form>
+
+<table border="1" align="center" style="color: white;border-color: white; ;width: 360px" >
+
+            {% for i in qr %}
+                <tr>
+                <td><font face="times new roman" color="green">First Name</font></td>
+                <td><font face="times new roman" color="#00008b">{{ i.fname }}</font></td>
+                </tr>
+                 <tr>
+                     <td><font face="times new roman" color="green">Last Name</font></td>
+                     <td><font face="times new roman" color="#00008b">{{ i.lname }}</font></td>
+                 </tr>
+                <tr>
+                    <td><font face="times new roman" color="green">Date Of Birth</font></td>
+                    <td><font face="times new roman" color="#00008b">{{ i.date }}</font></td>
+                </tr>
+                <tr>
+                    <td><font face="times new roman" color="green">Gender</font></td>
+                    <td><font face="times new roman" color="#00008b">{{ i.gender }}</font></td>
+                </tr>
+                <tr>
+                    <td><font face="times new roman" color="green">Village</font></td>
+                    <td><font face="times new roman" color="#00008b">{{ i.village }}</font></td>
+                </tr>
+                <tr>
+                    <td><font face="times new roman" color="green">Mandal</font></td>
+                    <td><font face="times new roman" color="#00008b">{{ i.mandal }}</font></td>
+                </tr>
+                <tr>
+                    <td><font face="times new roman" color="green">District</font></td>
+                    <td><font face="times new roman" color="#00008b">{{ i.district }}</font></td>
+                 </tr>
+                <tr>
+                    <td><font face="times new roman" color="black">Blood Group</font></td>
+                    <td><font face="times new roman" color="red">{{ i.blood }}</font></td>
+                </tr>
+
+                <tr>
+                    <td><font face="times new roman" color="green">Phone Number</font> </td>
+                    <td><a href="tel:+91{{ i.phone }}">+91{{ i.phone }}</a></td>
+                </tr>
+                {% endfor %}
+
+
+</table>
+
+</body>
+
+
+
+
+
+</head>
+</html>
