@@ -28,4 +28,9 @@ urlpatterns = [
     path("search1/",views.search1),
     path("search2/",views.search2),
     path("about/",views.about),
+    path("show/",views.show),
+    path("edit<int:idno>/",views.edit),
+    path("update<int:idno>/",views.update),
+    path("delete<int:idno>/",views.delete),
+
 ]
